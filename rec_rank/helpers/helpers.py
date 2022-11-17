@@ -2,6 +2,7 @@ from ranx import compare, Qrels
 import os
 import pprint
 import pathlib
+from lenskit import topn
 
 
 def evaluate_and_save_results(experiment_name, runs_collection, best_parameters_rec_algorithms, test_set):
@@ -36,3 +37,34 @@ def evaluate_and_save_results(experiment_name, runs_collection, best_parameters_
 
     print()
     print("The results were saved to the directory 'results'")
+
+
+# This method use LensKit library to calculate: NDCG, Precision and Recall.
+# With this method you can compare results between LensKit and Ranx.
+def lenskit_evaluator(all_recommendations, test_data):
+    rla = topn.RecListAnalysis()
+    rla.add_metric(topn.ndcg)
+    rla.add_metric(topn.precision)
+    rla.add_metric(topn.recall)
+    results = rla.compute(all_recommendations, test_data)
+
+    ndcg = results.groupby('Algorithm').ndcg.mean()
+    precision = results.groupby('Algorithm').precision.mean()
+    recall = results.groupby('Algorithm').recall.mean()
+
+    # I don't know why, but NDCG results are not the same between LensKit and Ranx.
+    # TODO: explore, why NDCG value is not the same between LensKit and Ranx.
+    for key, value in dict(ndcg).items():
+        print("Lenskit algorithm: " + key + " NDCG: " + str(value))
+
+    print()
+
+    # Same results between LensKit and Ranx
+    for key, value in dict(precision).items():
+        print("Lenskit algorithm: " + key + " Precision: " + str(value))
+
+    print()
+
+    # Same results between LensKit and Ranx
+    for key, value in dict(recall).items():
+        print("Lenskit algorithm: " + key + " Recall: " + str(value))

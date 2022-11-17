@@ -8,7 +8,7 @@ from parameters import ParametersForMovieLens100k, ParametersForMovieLens1M
 
 if __name__ == '__main__':
     # Stage 1: Load parameters for experiments
-    parameters = ParametersForMovieLens1M()
+    parameters = ParametersForMovieLens100k()
 
     # Stage 2: Split dataset into train and test sets (can be cached).
     training_set, test_set = train_test_split(parameters)
@@ -30,3 +30,4 @@ if __name__ == '__main__':
 
     # Stage 8: Evaluation of results, using a test set.
     helpers.evaluate_and_save_results(parameters.name, aggregated_results, best_parameters_rec_algorithms, test_set)
+    # helpers.lenskit_evaluator(recommendations, test_set)

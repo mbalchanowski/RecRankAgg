@@ -23,19 +23,22 @@ def aggregate_recommendations(parameters, all_recommendations, fusion_methods_pa
     all_recs_df = all_recommendations.astype({"user": str, "item": str})
 
     # For every algorithm, we need to create separate "Run" object
-    runs_collection = []
+    rec_algorithms = []
     for all_recs_grouped in all_recs_df.groupby("Algorithm"):
         run = Run.from_df(all_recs_grouped[1], q_id_col="user", doc_id_col="item", score_col="score")
         run.name = all_recs_grouped[0]
-        runs_collection.append(run)
+        rec_algorithms.append(run)
 
     # Fusion methods without optimization
-    fused_by_unsupervised_fusion_methods = fusion(runs_collection, parameters.unsupervised_fusion_methods)
+    fused_by_unsupervised_fusion_methods = fusion(rec_algorithms, parameters.unsupervised_fusion_methods)
 
     # Fusion methods with optimization
-    fused_by_supervised_fusion_methods = fusion(runs_collection, parameters.supervised_fusion_methods, fusion_methods_parameters)
+    fused_by_supervised_fusion_methods = fusion(rec_algorithms, parameters.supervised_fusion_methods, fusion_methods_parameters)
 
-    runs_collection.extend(fused_by_unsupervised_fusion_methods)
-    runs_collection.extend(fused_by_supervised_fusion_methods)
+    # Put all algorithms in one collection (Run objects)
+    all_runs = []
+    all_runs.extend(rec_algorithms)
+    all_runs.extend(fused_by_unsupervised_fusion_methods)
+    all_runs.extend(fused_by_supervised_fusion_methods)
 
-    return runs_collection
+    return all_runs

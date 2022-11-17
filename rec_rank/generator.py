@@ -2,6 +2,7 @@ from lenskit import batch, util
 from lenskit.algorithms import Recommender
 import pandas as pd
 import os
+from lenskit import topn
 
 
 def eval(aname, algo, train, number_of_recommendations_to_generate):
