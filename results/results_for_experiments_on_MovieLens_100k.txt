@@ -1,0 +1,206 @@
+========================
+% Add in preamble
+\usepackage{graphicx}
+\usepackage{booktabs}
+========================
+
+
+% To change the table size, act on the resizebox argument `0.8`.
+\begin{table*}[ht]
+\centering
+\caption{
+Overall effectiveness of the models.
+The best results are highlighted in boldface.
+Superscripts denote significant differences in Fisher's randomization test with $p \le 0.05$.
+}
+\resizebox{0.8\textwidth}{!}{
+\begin{tabular}{c|l|c|c|c|c|c}
+\toprule
+\textbf{\#}
+& \textbf{Model}
+& \textbf{NDCG@10}
+& \textbf{MAP@10}
+& \textbf{P@1}
+& \textbf{P@10}
+& \textbf{Recall@10} \\ 
+\midrule
+a &
+BPR &
+0.173$^{dfgh}$\hphantom{$^{bceijklmnopqrstuvwxy}$} &
+0.053$^{dfgh}$\hphantom{$^{bceijklmnopqrstuvwxy}$} &
+0.204$^{dfh}$\hphantom{$^{bcegijklmnopqrstuvwxy}$} &
+0.165$^{dfghl}$\hphantom{$^{bceijkmnopqrstuvwxy}$} &
+0.115$^{dfgh}$\hphantom{$^{bceijklmnopqrstuvwxy}$} \\
+b &
+ImplicitMF &
+0.181$^{adfghl}$\hphantom{$^{ceijkmnopqrstuvwxy}$} &
+0.058$^{adfghl}$\hphantom{$^{ceijkmnopqrstuvwxy}$} &
+0.232$^{adfghl}$\hphantom{$^{ceijkmnopqrstuvwxy}$} &
+0.166$^{dfghl}$\hphantom{$^{aceijkmnopqrstuvwxy}$} &
+0.120$^{dfghl}$\hphantom{$^{aceijkmnopqrstuvwxy}$} \\
+c &
+ItemkNN &
+0.181$^{dfghl}$\hphantom{$^{abeijkmnopqrstuvwxy}$} &
+0.058$^{adfghl}$\hphantom{$^{beijkmnopqrstuvwxy}$} &
+0.230$^{dfghl}$\hphantom{$^{abeijkmnopqrstuvwxy}$} &
+0.165$^{dfgh}$\hphantom{$^{abeijklmnopqrstuvwxy}$} &
+0.122$^{adfghlm}$\hphantom{$^{beijknopqrstuvwxy}$} \\
+d &
+MostPopular &
+0.107\hphantom{$^{abcefghijklmnopqrstuvwxy}$} &
+0.028\hphantom{$^{abcefghijklmnopqrstuvwxy}$} &
+0.150$^{f}$\hphantom{$^{abceghijklmnopqrstuvwxy}$} &
+0.106\hphantom{$^{abcefghijklmnopqrstuvwxy}$} &
+0.065\hphantom{$^{abcefghijklmnopqrstuvwxy}$} \\
+e &
+UserkNN &
+0.186$^{adfghl}$\hphantom{$^{bcijkmnopqrstuvwxy}$} &
+0.060$^{adfghl}$\hphantom{$^{bcijkmnopqrstuvwxy}$} &
+0.233$^{dfghl}$\hphantom{$^{abcijkmnopqrstuvwxy}$} &
+0.172$^{dfghkl}$\hphantom{$^{abcijmnopqrstuvwxy}$} &
+0.123$^{adfghlm}$\hphantom{$^{bcijknopqrstuvwxy}$} \\
+f &
+comb\_min &
+0.120$^{d}$\hphantom{$^{abceghijklmnopqrstuvwxy}$} &
+0.030\hphantom{$^{abcdeghijklmnopqrstuvwxy}$} &
+0.121\hphantom{$^{abcdeghijklmnopqrstuvwxy}$} &
+0.128$^{d}$\hphantom{$^{abceghijklmnopqrstuvwxy}$} &
+0.085$^{d}$\hphantom{$^{abceghijklmnopqrstuvwxy}$} \\
+g &
+comb\_med &
+0.150$^{dfh}$\hphantom{$^{abceijklmnopqrstuvwxy}$} &
+0.043$^{dfh}$\hphantom{$^{abceijklmnopqrstuvwxy}$} &
+0.187$^{dfh}$\hphantom{$^{abceijklmnopqrstuvwxy}$} &
+0.145$^{df}$\hphantom{$^{abcehijklmnopqrstuvwxy}$} &
+0.099$^{df}$\hphantom{$^{abcehijklmnopqrstuvwxy}$} \\
+h &
+comb\_anz &
+0.146$^{df}$\hphantom{$^{abcegijklmnopqrstuvwxy}$} &
+0.041$^{df}$\hphantom{$^{abcegijklmnopqrstuvwxy}$} &
+0.153$^{f}$\hphantom{$^{abcdegijklmnopqrstuvwxy}$} &
+0.147$^{df}$\hphantom{$^{abcegijklmnopqrstuvwxy}$} &
+0.100$^{df}$\hphantom{$^{abcegijklmnopqrstuvwxy}$} \\
+i &
+log\_isr &
+\textbf{0.193}$^{abcdefghklmox}$\hphantom{$^{jnpqrstuvwy}$} &
+0.061$^{adfghklmo}$\hphantom{$^{bcejnpqrstuvwxy}$} &
+\textbf{0.251}$^{adfghlm}$\hphantom{$^{bcejknopqrstuvwxy}$} &
+0.175$^{abcdfghklmo}$\hphantom{$^{ejnpqrstuvwxy}$} &
+0.124$^{adfghklmnop}$\hphantom{$^{bcejqrstuvwxy}$} \\
+j &
+bordafuse &
+0.192$^{abcdfghklmo}$\hphantom{$^{einpqrstuvwxy}$} &
+0.061$^{adfghklmo}$\hphantom{$^{bceinpqrstuvwxy}$} &
+0.236$^{adfghl}$\hphantom{$^{bceikmnopqrstuvwxy}$} &
+0.176$^{abcdfghklmo}$\hphantom{$^{einpqrstuvwxy}$} &
+0.125$^{abdfghklmnop}$\hphantom{$^{ceiqrstuvwxy}$} \\
+k &
+condorcet &
+0.181$^{adfghl}$\hphantom{$^{bceijmnopqrstuvwxy}$} &
+0.058$^{adfghl}$\hphantom{$^{bceijmnopqrstuvwxy}$} &
+0.243$^{adfghl}$\hphantom{$^{bceijmnopqrstuvwxy}$} &
+0.161$^{dfgh}$\hphantom{$^{abceijlmnopqrstuvwxy}$} &
+0.120$^{dfghl}$\hphantom{$^{abceijmnopqrstuvwxy}$} \\
+l &
+comb\_max &
+0.170$^{dfgh}$\hphantom{$^{abceijkmnopqrstuvwxy}$} &
+0.051$^{dfgh}$\hphantom{$^{abceijkmnopqrstuvwxy}$} &
+0.200$^{dfh}$\hphantom{$^{abcegijkmnopqrstuvwxy}$} &
+0.157$^{dfgh}$\hphantom{$^{abceijkmnopqrstuvwxy}$} &
+0.109$^{dfgh}$\hphantom{$^{abceijkmnopqrstuvwxy}$} \\
+m &
+comb\_sum &
+0.184$^{adfghl}$\hphantom{$^{bceijknopqrstuvwxy}$} &
+0.058$^{adfghl}$\hphantom{$^{bceijknopqrstuvwxy}$} &
+0.236$^{adfghl}$\hphantom{$^{bceijknopqrstuvwxy}$} &
+0.166$^{dfghl}$\hphantom{$^{abceijknopqrstuvwxy}$} &
+0.115$^{dfghl}$\hphantom{$^{abceijknopqrstuvwxy}$} \\
+n &
+comb\_mnz &
+0.191$^{abcdfghklmo}$\hphantom{$^{eijpqrstuvwxy}$} &
+0.060$^{adfghklmo}$\hphantom{$^{bceijpqrstuvwxy}$} &
+0.236$^{adfghl}$\hphantom{$^{bceijkmopqrstuvwxy}$} &
+0.175$^{abcdfghklmo}$\hphantom{$^{eijpqrstuvwxy}$} &
+0.122$^{adfghlmo}$\hphantom{$^{bceijkpqrstuvwxy}$} \\
+o &
+isr &
+0.187$^{adfghklm}$\hphantom{$^{bceijnpqrstuvwxy}$} &
+0.059$^{adfghl}$\hphantom{$^{bceijkmnpqrstuvwxy}$} &
+0.249$^{adfghl}$\hphantom{$^{bceijkmnpqrstuvwxy}$} &
+0.169$^{dfghklm}$\hphantom{$^{abceijnpqrstuvwxy}$} &
+0.118$^{dfghl}$\hphantom{$^{abceijkmnpqrstuvwxy}$} \\
+p &
+comb\_gmnz &
+0.191$^{abcdfghklmo}$\hphantom{$^{eijnqrstuvwxy}$} &
+0.060$^{adfghlmo}$\hphantom{$^{bceijknqrstuvwxy}$} &
+0.236$^{adfghl}$\hphantom{$^{bceijkmnoqrstuvwxy}$} &
+0.175$^{abcdfghklmo}$\hphantom{$^{eijnqrstuvwxy}$} &
+0.122$^{adfghlmo}$\hphantom{$^{bceijknqrstuvwxy}$} \\
+q &
+rrf &
+0.192$^{abcdefghklmo}$\hphantom{$^{ijnprstuvwxy}$} &
+0.061$^{adfghklmo}$\hphantom{$^{bceijnprstuvwxy}$} &
+0.240$^{adfghl}$\hphantom{$^{bceijkmnoprstuvwxy}$} &
+0.176$^{abcdfghklmo}$\hphantom{$^{eijnprstuvwxy}$} &
+0.124$^{adfghklmop}$\hphantom{$^{bceijnrstuvwxy}$} \\
+r &
+slidefuse &
+0.193$^{abcdefghklmox}$\hphantom{$^{ijnpqstuvwy}$} &
+\textbf{0.062}$^{abcdfghjklmnopwx}$\hphantom{$^{eiqstuvy}$} &
+0.238$^{adfghl}$\hphantom{$^{bceijkmnopqstuvwxy}$} &
+0.177$^{abcdfghklmo}$\hphantom{$^{eijnpqstuvwxy}$} &
+0.125$^{abdfghklmop}$\hphantom{$^{ceijnqstuvwxy}$} \\
+s &
+bayesfuse &
+0.193$^{abcdefghklmo}$\hphantom{$^{ijnpqrtuvwxy}$} &
+0.062$^{abcdfghklmnop}$\hphantom{$^{eijqrtuvwxy}$} &
+0.231$^{adfghl}$\hphantom{$^{bceijkmnopqrtuvwxy}$} &
+0.177$^{abcdfghklmo}$\hphantom{$^{eijnpqrtuvwxy}$} &
+\textbf{0.126}$^{abdfghklmnop}$\hphantom{$^{ceijqrtuvwxy}$} \\
+t &
+wmnz &
+0.190$^{abcdfghklm}$\hphantom{$^{eijnopqrsuvwxy}$} &
+0.061$^{acdfghklmo}$\hphantom{$^{beijnpqrsuvwxy}$} &
+0.243$^{adfghl}$\hphantom{$^{bceijkmnopqrsuvwxy}$} &
+0.171$^{cdfghkl}$\hphantom{$^{abeijmnopqrsuvwxy}$} &
+0.122$^{adfghlmo}$\hphantom{$^{bceijknpqrsuvwxy}$} \\
+u &
+rbc &
+0.192$^{abcdefghklmo}$\hphantom{$^{ijnpqrstvwxy}$} &
+0.061$^{adfghklmo}$\hphantom{$^{bceijnpqrstvwxy}$} &
+0.239$^{adfghl}$\hphantom{$^{bceijkmnopqrstvwxy}$} &
+0.176$^{abcdfghklmo}$\hphantom{$^{eijnpqrstvwxy}$} &
+0.124$^{adfghklmnop}$\hphantom{$^{bceijqrstvwxy}$} \\
+v &
+logn\_isr &
+0.193$^{abcdefghklmox}$\hphantom{$^{ijnpqrstuwy}$} &
+0.061$^{adfghklmo}$\hphantom{$^{bceijnpqrstuwxy}$} &
+0.251$^{adfghl}$\hphantom{$^{bceijkmnopqrstuwxy}$} &
+0.176$^{abcdfghklmo}$\hphantom{$^{eijnpqrstuwxy}$} &
+0.124$^{adfghlmop}$\hphantom{$^{bceijknqrstuwxy}$} \\
+w &
+posfuse &
+0.193$^{abcdefghklmox}$\hphantom{$^{ijnpqrstuvy}$} &
+0.062$^{acdfghklmo}$\hphantom{$^{beijnpqrstuvxy}$} &
+0.234$^{adfghl}$\hphantom{$^{bceijkmnopqrstuvxy}$} &
+\textbf{0.178}$^{abcdefghklmot}$\hphantom{$^{ijnpqrsuvxy}$} &
+0.125$^{abdfghklmnop}$\hphantom{$^{ceijqrstuvxy}$} \\
+x &
+weighted\_sum &
+0.187$^{acdfghl}$\hphantom{$^{beijkmnopqrstuvwy}$} &
+0.060$^{adfghl}$\hphantom{$^{bceijkmnopqrstuvwy}$} &
+0.230$^{dfghl}$\hphantom{$^{abceijkmnopqrstuvwy}$} &
+0.173$^{acdfghklm}$\hphantom{$^{beijnopqrstuvwy}$} &
+0.125$^{adfghklmo}$\hphantom{$^{bceijnpqrstuvwy}$} \\
+y &
+weighted\_bordafuse &
+0.192$^{abcdefghklmox}$\hphantom{$^{ijnpqrstuvw}$} &
+0.062$^{abcdefghklmox}$\hphantom{$^{ijnpqrstuvw}$} &
+0.233$^{adfghl}$\hphantom{$^{bceijkmnopqrstuvwx}$} &
+0.175$^{abcdfghklmo}$\hphantom{$^{eijnpqrstuvwx}$} &
+0.126$^{abdfghklmop}$\hphantom{$^{ceijnqrstuvwx}$} \\
+\bottomrule
+\end{tabular}
+}
+\label{tab:results}
+\end{table*}
