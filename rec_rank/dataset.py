@@ -2,6 +2,7 @@ from lenskit import crossfold as xf
 import pandas as pd
 import os
 import pathlib
+from rec_rank.helpers.helpers import ask_to_download_dataset
 
 
 def train_test_split(parameters):
@@ -16,6 +17,8 @@ def train_test_split(parameters):
         test_set = pd.read_pickle(saved_files_path + "test_set")
 
         return training_set, test_set
+
+    ask_to_download_dataset(parameters.dataset)
 
     # We are using "partition_users" and "LastFrac" methods, since we will be using last 20% of users ratings as testset
     for training_set, test_set in xf.partition_users(parameters.dataset.ratings[['user', 'item', 'rating', 'timestamp']],

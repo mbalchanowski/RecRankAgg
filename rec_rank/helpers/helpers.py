@@ -1,8 +1,13 @@
+import zipfile
+from os.path import join
+from urllib.request import urlretrieve
+
 from ranx import compare, Qrels
 import os
 import pprint
 import pathlib
 from lenskit import topn
+import sys
 
 
 def evaluate_and_save_results(experiment_name, runs_collection, best_parameters_rec_algorithms, test_set):
@@ -68,3 +73,42 @@ def lenskit_evaluator(all_recommendations, test_data):
     # Same results between LensKit and Ranx
     for key, value in dict(recall).items():
         print("Lenskit algorithm: " + key + " Recall: " + str(value))
+
+
+def ask_to_download_dataset(dataset):
+    if not os.path.isdir(dataset.path):
+        answered = False
+        while not answered:
+            print(
+                "Dataset " + dataset.path.name + " not found. Do you want to download it? [y/n] ",
+                end="",
+            )
+            choice = input().lower()
+
+            if choice in ["yes", "y", ""]:
+                answered = True
+            elif choice in ["no", "n"]:
+                sys.exit()
+
+        dataset_downloader(dataset)
+
+
+def dataset_downloader(dataset):
+    if dataset.path.name == "ml-100k":
+        url = "https://files.grouplens.org/datasets/movielens/ml-100k.zip"
+    elif dataset.path.name == "ml-1m":
+        url = "https://files.grouplens.org/datasets/movielens/ml-1m.zip"
+    else:
+        print("Dataset name not found")
+        sys.exit()
+
+    pathlib.Path(dataset.path).mkdir(parents=True, exist_ok=True)
+    print("Trying to download dataset from: " + url + "...")
+    tmp_file_path = join(dataset.path, "tmp.zip")
+    urlretrieve(url, tmp_file_path)
+
+    with zipfile.ZipFile(tmp_file_path, "r") as tmp_zip:
+        tmp_zip.extractall("data")
+
+    os.remove(tmp_file_path)
+    print("Done! Dataset", dataset.path.name, "has been saved to", dataset.path)
