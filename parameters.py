@@ -3,7 +3,7 @@ from lenskit.datasets import ML100K, ML1M
 import numba
 
 
-class ParametersForMovieLens100k():
+class ParametersForMovieLens100k:
     # If you want better performance, you need to config numba, for example
     # numba.config.THREADING_LAYER = "tbb"
 
@@ -19,7 +19,7 @@ class ParametersForMovieLens100k():
                                  "w_bordafuse"]
 
 
-class ParametersForMovieLens1M():
+class ParametersForMovieLens1M:
     # If you want better performance, you need to config numba, for example
     # numba.config.THREADING_LAYER = "tbb"
 
