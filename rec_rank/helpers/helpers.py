@@ -1,13 +1,8 @@
-import zipfile
+import os, pprint, pathlib, sys, zipfile
 from os.path import join
 from urllib.request import urlretrieve
-
 from ranx import compare, Qrels
-import os
-import pprint
-import pathlib
 from lenskit import topn
-import sys
 
 
 def evaluate_and_save_results(experiment_name, runs_collection, best_parameters_rec_algorithms, test_set):

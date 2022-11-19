@@ -1,5 +1,9 @@
 # RecRank
-This software was developed to demonstrate that the rank aggregation methods can be successfully applied to recommendation systems. Three main libraries were used during development:
+This software was developed to conduct experiments for the paper "*A comparative study of rank aggregation methods in recommendation systems*" 
+which demonstrates that the rank aggregation methods can be successfully applied to recommendation systems. 
+To keep this software relatively simple, it uses only **5 recommendation** algorithms and **20 aggregation methods**.
+
+Three main libraries were used during development:
 1. [LensKit](https://github.com/lenskit/lkpy) - is a set of Python tools for experimenting with and studying recommender systems. It provides support for training, running, and evaluating recommender algorithms in a flexible fashion suitable for research and education.
 2. [Rankx](https://github.com/AmenRa/ranx) - is a library of fast ranking evaluation metrics implemented in Python.
 3. [Optuna](https://github.com/optuna/optuna) - is an automatic hyperparameter optimization software framework particularly designed for machine learning.
@@ -34,18 +38,15 @@ conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 python3 -m pip install tensorflow
 
 ## Reproducing results from the paper
-If you want to reproduce results from the paper "*A comparative study of rank aggregation methods in recommendation systems*", just run script `main.py` with default settings. 
+If you want to reproduce results from the paper, just run script `main.py` with default settings. 
 It will use some cached files like: training and test sets, learned parameters, etc.
 
 ## Run without cache
 If you want to tune algorithms and generate recommendations on your own, you have to:
-* Download datasets (MovieLens 100k or MovieLens 1M) and put them in `data` folder.
 * Set `use_cached_files` to `False` in `parameters.py` file. 
 * Run `main.py` script.
 
-*Please note: This process can take a while*
-
-Datasets can be downloaded from:
+Datasets should be downloaded automatically, but you can also download them from:
 * MovieLens 100k - https://grouplens.org/datasets/movielens/100k/
 * MovieLens 1M - https://grouplens.org/datasets/movielens/1m/
 
@@ -58,7 +59,7 @@ If you want better performance, please read about Numba (used by Ranx) and Tenso
 If you use RecRank in your scientific publication, please consider citing our paper:
 
 ## License
-RecRank is an open-sourced software licensed under the MIT license.
+RecRank is an open-sourced software licensed under the [MIT license](LICENSE.md).
 
 ## References
 <a id="1">[1]</a>
