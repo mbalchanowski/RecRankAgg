@@ -40,6 +40,21 @@ helpers.evaluate_and_save_results(parameters.name, aggregated_results, best_para
 * Some stages can be cached to speed up the process of aggregation. This will save some files to `cache` folder. If you want to disable cache, go to section below [run without cache](#run-without-cache)
 * `test_set` should be used only for final evaluation in *Stage 8*.
 * Results are printed on the console and saved to a file `results/results_for_MovieLens_X.txt` in the form of latex table.
+* All used fusion methods can be found here: https://amenra.github.io/ranx/fusion/#supported-fusion-algorithms
+
+Parameters for experiments can be set in the file `parameters.py`:
+```python
+name = "experiments_on_MovieLens_100k"
+dataset = ML100K()  # dataset for experiments
+rec_number = 10     # number of recommendations per algorithm
+number_of_trails = 100    # trails for Optuna parameters tuning
+use_cached_files = True   # use files saved in "cache" directory
+
+rec_algorithms = [ItemkNN, ImplicitMF, UserkNN, MostPopular, BPR]
+unsupervised_fusion_methods = ["min", "med", "anz", "log_isr", "bordafuse", "condorcet", "max", "sum", "mnz", "isr"]
+supervised_fusion_methods = ["gmnz", "rrf", "slidefuse", "bayesfuse", "wmnz", "rbc", "logn_isr", "posfuse", "wsum",
+                             "w_bordafuse"]
+```
 
 ## What is rank aggregation?
 As pointed out in [[1, page 417]](#1), this is a relatively unexplored approach in the context of 

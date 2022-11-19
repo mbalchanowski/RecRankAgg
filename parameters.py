@@ -14,6 +14,7 @@ class ParametersForMovieLens100k:
     use_cached_files = True
 
     rec_algorithms = [ItemkNN, ImplicitMF, UserkNN, MostPopular, BPR]
+    # names and aliases of fusion methods can be found here: https://amenra.github.io/ranx/fusion/#supported-fusion-algorithms
     unsupervised_fusion_methods = ["min", "med", "anz", "log_isr", "bordafuse", "condorcet", "max", "sum", "mnz", "isr"]
     supervised_fusion_methods = ["gmnz", "rrf", "slidefuse", "bayesfuse", "wmnz", "rbc", "logn_isr", "posfuse", "wsum",
                                  "w_bordafuse"]
@@ -30,6 +31,7 @@ class ParametersForMovieLens1M:
     use_cached_files = True
 
     rec_algorithms = [ItemkNN, ImplicitMF, UserkNN, MostPopular, BPR]
+    # names and aliases of fusion methods can be found here: https://amenra.github.io/ranx/fusion/#supported-fusion-algorithms
     unsupervised_fusion_methods = ["min", "med", "anz", "log_isr", "bordafuse", "condorcet", "max", "sum", "mnz", "isr"]
     supervised_fusion_methods = ["gmnz", "rrf", "slidefuse", "bayesfuse", "wmnz", "rbc", "logn_isr", "posfuse", "wsum",
                                  "w_bordafuse"]
