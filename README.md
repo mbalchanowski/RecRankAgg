@@ -1,4 +1,11 @@
 # RecRankAgg
+
+## Reproducing results from the paper
+If you just want to reproduce results from the paper [[2]](#2) you will have to download this repository, [install some packages](installation)
+and run script `main.py`. With default settings it will use some cached files like: training and test sets, learned parameters, etc.
+If you want to generate everything from scratch, go to section below: [run without cache](#run-without-cache)
+
+## Introduction
 This software was developed to conduct experiments for the paper [[2]](#2) 
 which demonstrates that the rank aggregation methods can be successfully applied to recommendation systems. 
 To keep this software relatively simple, it uses only **5 recommendation algorithms** and **20 aggregation methods**.
@@ -57,7 +64,7 @@ supervised_fusion_methods = ["gmnz", "rrf", "slidefuse", "bayesfuse", "wmnz", "r
 ```
 
 ## Installation
-RecRankAgg need some packages to run. You can install them with pip:
+RecRankAgg need some packages to run. You can install them with `pip`:
 ```python
 pip install ranx
 pip install lenskit
@@ -73,10 +80,6 @@ a certain set of algorithms is used that generate recommendations for a given us
 and then the results of these algorithms are aggregated to create
 a new recommendation. Aggregation is not a trivial problem,
 as there is no single universal method for combining such rankings.
-
-## Reproducing results from the paper
-If you want to reproduce results from the paper, just run script `main.py` with default settings. 
-It will use some cached files like: training and test sets, learned parameters, etc.
 
 ## Run without cache
 If you want to tune algorithms and generate recommendations on your own, you have to:
