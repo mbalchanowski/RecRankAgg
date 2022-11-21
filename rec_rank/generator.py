@@ -25,7 +25,6 @@ def generate_recommendations(parameters, training_set, algorithms):
         return pd.read_pickle(saved_files_path + "recommendations")
 
     recommendations = []
-
     for algorithm in algorithms:
         recommendations.append(
             eval(algorithm.name, algorithm, training_set, parameters.rec_number)
@@ -39,7 +38,6 @@ def generate_recommendations(parameters, training_set, algorithms):
 
 def generate_recommendations_for_fusion_tuning(training_set, algorithms, number_of_recommendations_to_generate):
     recommendations = []
-
     for algorithm in algorithms:
         recommendations.append(
             eval(algorithm.name, algorithm, training_set, number_of_recommendations_to_generate)

@@ -41,7 +41,7 @@ def evaluate_and_save_results(experiment_name, runs_collection, best_parameters_
 
 # This method use LensKit library to calculate: NDCG, Precision and Recall.
 # With this method you can compare results between LensKit and Ranx.
-def lenskit_evaluator(all_recommendations, test_data):
+def get_results_from_lenskit(all_recommendations, test_data):
     rla = topn.RecListAnalysis()
     rla.add_metric(topn.ndcg)
     rla.add_metric(topn.precision)
