@@ -1,7 +1,7 @@
 # RecRankAgg
 
 ## Reproducing results from the paper
-If you just want to reproduce results from the paper [[2]](#2) you will have to download this repository, [install some packages](installation)
+If you just want to reproduce results from the paper [[2]](#2) you will have to download this repository, [install some packages](#installation)
 and run script `main.py`. With default settings it will use some cached files like: training and test sets, learned parameters, etc.
 If you want to generate everything from scratch, go to section below: [run without cache](#run-without-cache)
 
