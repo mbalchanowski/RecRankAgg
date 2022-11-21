@@ -7,7 +7,7 @@ If you want to generate everything from scratch, go to section below: [run witho
 
 ## Introduction
 This software was developed to conduct experiments for the paper [[2]](#2) 
-which demonstrates that the [rank aggregation](#what-is-rank-aggregation?) methods can be successfully applied to recommendation systems. 
+which demonstrates that the [rank aggregation](#what-is-rank-aggregation) methods can be successfully applied to recommendation systems. 
 To keep this software relatively simple, it uses only **5 recommendation algorithms** and **20 aggregation methods**.
 
 Three main libraries were used during development:
