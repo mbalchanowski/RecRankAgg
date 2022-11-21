@@ -1,4 +1,4 @@
-# RecRank
+# RecRankAgg
 This software was developed to conduct experiments for the paper [[2]](#2) 
 which demonstrates that the rank aggregation methods can be successfully applied to recommendation systems. 
 To keep this software relatively simple, it uses only **5 recommendation algorithms** and **20 aggregation methods**.
@@ -57,8 +57,8 @@ supervised_fusion_methods = ["gmnz", "rrf", "slidefuse", "bayesfuse", "wmnz", "r
 ```
 
 ## Installation
-RecRank need some packages to run. You can install them with pip:
-```
+RecRankAgg need some packages to run. You can install them with pip:
+```python
 pip install ranx
 pip install lenskit
 pip install lenskit-tf
@@ -92,16 +92,17 @@ If you want better performance, please read about Numba (used by Ranx) and Tenso
 - Numba - https://numba.pydata.org/numba-doc/0.46.0/user/threading-layer.html#numba-threading-layer-setting-mech
 - Tensorflow - https://www.tensorflow.org/install/pip
 
+To run tensorflow with CUDA you will need:
 ```
 conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 python3 -m pip install tensorflow
 ```
 
 ## Citation
-If you use RecRank in your scientific publication, please consider citing our paper:
+If you use RecRankAgg in your scientific publication, please consider citing our paper:
 
 ## License
-RecRank is an open-sourced software licensed under the [MIT license](LICENSE.md).
+RecRankAgg is an open-sourced software licensed under the [MIT license](LICENSE.md).
 
 ## References
 <a id="1">[1]</a>
