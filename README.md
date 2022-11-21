@@ -56,6 +56,16 @@ supervised_fusion_methods = ["gmnz", "rrf", "slidefuse", "bayesfuse", "wmnz", "r
                              "w_bordafuse"]
 ```
 
+## Installation
+RecRank need some packages to run. You can install them with pip:
+```
+pip install ranx
+pip install lenskit
+pip install lenskit-tf
+pip install optuna
+pip install matplotlib
+```
+
 ## What is rank aggregation?
 As pointed out in [[1, page 417]](#1), this is a relatively unexplored approach in the context of 
 recommendation systems, where instead of a single algorithm, 
@@ -63,11 +73,6 @@ a certain set of algorithms is used that generate recommendations for a given us
 and then the results of these algorithms are aggregated to create
 a new recommendation. Aggregation is not a trivial problem,
 as there is no single universal method for combining such rankings.
-
-## Installation
-This software uses 
-conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
-python3 -m pip install tensorflow
 
 ## Reproducing results from the paper
 If you want to reproduce results from the paper, just run script `main.py` with default settings. 
@@ -86,6 +91,11 @@ Datasets should be downloaded automatically, but you can also download them from
 If you want better performance, please read about Numba (used by Ranx) and Tensorflow (used by LensKit). More details here:
 - Numba - https://numba.pydata.org/numba-doc/0.46.0/user/threading-layer.html#numba-threading-layer-setting-mech
 - Tensorflow - https://www.tensorflow.org/install/pip
+
+```
+conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
+python3 -m pip install tensorflow
+```
 
 ## Citation
 If you use RecRank in your scientific publication, please consider citing our paper:
