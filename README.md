@@ -119,4 +119,4 @@ pp. 411-448
 <a id="2">[2]</a>
 Michał Bałchanowski and Urszula Boryczka,
 A comparative study of rank aggregation methods in recommendation systems,
-(Full citation information will be added later)
+(Full bibliographic information will be added later)

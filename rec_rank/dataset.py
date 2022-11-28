@@ -35,5 +35,5 @@ def train_validation_split(training_set):
     # We are using "partition_users" and "LastFrac" methods, since we will be using last 20% of users ratings as testset
     for training_set, validation_set in xf.partition_users(training_set[['user', 'item', 'rating', 'timestamp']],
                                           partitions=1,
-                                          method=xf.LastFrac(0.2)):
+                                          method=xf.LastFrac(0.25)):
         return training_set, validation_set
