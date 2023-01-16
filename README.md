@@ -81,6 +81,8 @@ and then the results of these algorithms are aggregated to create
 a new recommendation. Aggregation is not a trivial problem,
 as there is no single universal method for combining such rankings.
 
+<img src="./GA.svg">
+
 ## Run without cache
 If you want to tune algorithms and generate recommendations on your own, you have to:
 * Set `use_cached_files` to `False` in `parameters.py` file. 
