@@ -2,15 +2,21 @@ from ranx import fuse
 from ranx import Run
 
 
-def fusion(runs_collection, fusion_methods, fusion_methods_parameters=None):
+def fusion(runs_collection, fusion_methods, fusion_norm, fusion_methods_parameters=None):
     fusion_runs = []
+
+    if fusion_methods is None:
+        return fusion_runs
+
     for method in fusion_methods:
         if fusion_methods_parameters is None:
             fused_run = fuse(runs=runs_collection,
+                             norm=fusion_norm,
                              method=method)
             fusion_runs.append(fused_run)
         else:
             fused_run = fuse(runs=runs_collection,
+                             norm=fusion_norm,
                              method=method,
                              params=fusion_methods_parameters[method])
             fusion_runs.append(fused_run)
@@ -30,10 +36,10 @@ def aggregate_recommendations(parameters, all_recommendations, fusion_methods_pa
         rec_algorithms.append(run)
 
     # Fusion methods without optimization
-    fused_by_unsupervised_fusion_methods = fusion(rec_algorithms, parameters.unsupervised_fusion_methods)
+    fused_by_unsupervised_fusion_methods = fusion(rec_algorithms, parameters.unsupervised_fusion_methods, parameters.fusion_norm)
 
     # Fusion methods with optimization
-    fused_by_supervised_fusion_methods = fusion(rec_algorithms, parameters.supervised_fusion_methods, fusion_methods_parameters)
+    fused_by_supervised_fusion_methods = fusion(rec_algorithms, parameters.supervised_fusion_methods, parameters.fusion_norm, fusion_methods_parameters)
 
     # Put all algorithms in one collection (Run objects)
     all_runs = []

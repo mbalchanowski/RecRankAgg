@@ -12,6 +12,7 @@ class ParametersForMovieLens100k:
     rec_number = 10     # number of recommendations
     number_of_trails = 100    # trails for Optuna parameters tuning
     use_cached_files = True
+    fusion_norm = "min-max"    # normalization strategy: https://amenra.github.io/ranx/normalization/#Normalization
 
     rec_algorithms = [ItemkNN, ImplicitMF, UserkNN, MostPopular, BPR]
     # names and aliases of fusion methods can be found here: https://amenra.github.io/ranx/fusion/#supported-fusion-algorithms
@@ -29,6 +30,7 @@ class ParametersForMovieLens1M:
     rec_number = 10 # number of recommendations
     number_of_trails = 100    # trails for Optuna parameters tuning
     use_cached_files = True
+    fusion_norm = "min-max"    # normalization strategy: https://amenra.github.io/ranx/normalization/#Normalization
 
     rec_algorithms = [ItemkNN, ImplicitMF, UserkNN, MostPopular, BPR]
     # names and aliases of fusion methods can be found here: https://amenra.github.io/ranx/fusion/#supported-fusion-algorithms
