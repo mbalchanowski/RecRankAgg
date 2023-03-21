@@ -56,6 +56,7 @@ dataset = ML100K()  # dataset for experiments
 rec_number = 10     # number of recommendations per algorithm
 number_of_trails = 100    # trails for Optuna parameters tuning
 use_cached_files = True   # use files saved in "cache" directory
+fusion_norm = "min-max"   # normalization strategy
 
 rec_algorithms = [ItemkNN, ImplicitMF, UserkNN, MostPopular, BPR]
 unsupervised_fusion_methods = ["min", "med", "anz", "log_isr", "bordafuse", "condorcet", "max", "sum", "mnz", "isr"]
