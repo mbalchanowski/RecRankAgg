@@ -81,7 +81,7 @@ and then the results of these algorithms are aggregated to create
 a new recommendation. Aggregation is not a trivial problem,
 as there is no single universal method for combining such rankings.
 
-Check out my other repository for more information: [Rank aggregation basic informations](https://github.com/mbalchanowski/Rank-aggregation-basic-informations)
+Check out my other repository for more information about this topic: [Rank aggregation basic informations](https://github.com/mbalchanowski/Rank-aggregation-basic-informations)
 
 ## Run without cache
 If you want to tune algorithms and generate recommendations on your own, you have to:
